@@ -22,9 +22,10 @@ const HomeScreen = ({navigation} ) => {
         <MainButton onPress={() => {navigation.navigate('Film')}}>
           <FontAwesome name="file-movie-o" size={24} color="black" />
         </MainButton>
-        {/* <MainButton onPress={() => {navigation.push('NewItem')}}>
-          <FontAwesome name="file-movie-o" size={24} color="black" />
-        </MainButton> */}
+        <MainButton onPress={() => {navigation.navigate('NewItem')}}>
+          {/* <FontAwesome name="file-movie-o" size={24} color="black" /> */}
+          <Text>Nouveau</Text>
+        </MainButton>
         <StatusBar style="auto" />
       </View>
       

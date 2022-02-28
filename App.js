@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 // import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Colors from "./constants/colors";
 
 import useFonts from "./hooks/useFonts";
 import AppLoading from "expo-app-loading"; //permet de charger le Font complètement avant le 1er render
@@ -11,7 +12,7 @@ import AppLoading from "expo-app-loading"; //permet de charger le Font complète
 import HomeScreen from "./screens/HomeScreen";
 import MusicScreen from "./screens/MusicScreen";
 import FilmScreen from "./screens/FilmScreen";
-// import NewItemScreen from "./screens/NewItemScreen";
+import NewItemScreen from "./screens/NewItemScreen";
 // import UpdateItemScreen from "./screens/UpdateItemScreen";
 
 // const Stack = createNativeStackNavigator();
@@ -53,10 +54,10 @@ export default function App() {
 
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "Musiques") {
+          } else if (route.name === "Music") {
             iconName = focused ? "musical-notes" : "musical-notes-outline";
-          } else if (route.name === "Films") {
-            iconName = focused ? "films" : "film-outline";
+          } else if (route.name === "Film") {
+            iconName = focused ? "film" : "film-outline";
           } 
           // else if (route.name === "A propos") {
           //   iconName = focused
@@ -71,13 +72,14 @@ export default function App() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "green",
+        tabBarActiveTintColor: Colors.primary,
         tabBarInactiveTintColor: "gray",
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ title: 'Accueil' }} />
       <Tab.Screen name="Music" component={MusicScreen} options={{ title: 'Musiques' }} />
       <Tab.Screen name="Film" component={FilmScreen} options={{ title: 'Films' }} />
+      <Tab.Screen name="NewItem" component={NewItemScreen} options={{ title: 'Nouveau' }} />
       {/* <Tab.Screen name="A propos" component={AProposScreen} /> */}
     </Tab.Navigator>
     </NavigationContainer>

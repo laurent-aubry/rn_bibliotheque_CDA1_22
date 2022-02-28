@@ -23,6 +23,7 @@ const CardItem = ( { myRoute, oeuvre, onDelete}) => {
       );
       if (response.ok) {
         onDelete(oeuvre.id);
+        navigation.navigate('Music');
       }
     } catch (err) {
       console.log(err);
