@@ -8,7 +8,7 @@ import CardItem from "./CardItem";
 
 const CardList = ({navigation, oeuvres, myRoute, onDeleteItem}) => {
   const renderItem = ({ item }) => (
-    <CardItem oeuvre={item} onDelete={onDeleteItem} myRoute={myRoute} navigation />
+    <CardItem oeuvre={item} onDelete={onDeleteItem} myRoute={myRoute} navigation={navigation} />
   );
 
   return (

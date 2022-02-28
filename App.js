@@ -13,7 +13,7 @@ import HomeScreen from "./screens/HomeScreen";
 import MusicScreen from "./screens/MusicScreen";
 import FilmScreen from "./screens/FilmScreen";
 import NewItemScreen from "./screens/NewItemScreen";
-// import UpdateItemScreen from "./screens/UpdateItemScreen";
+import UpdateItemScreen from "./screens/UpdateItemScreen";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -80,6 +80,7 @@ export default function App() {
       <Tab.Screen name="Music" component={MusicScreen} options={{ title: 'Musiques' }} />
       <Tab.Screen name="Film" component={FilmScreen} options={{ title: 'Films' }} />
       <Tab.Screen name="NewItem" component={NewItemScreen} options={{ title: 'Nouveau' }} />
+      <Tab.Screen name="UpdateItem" component={UpdateItemScreen} options={{ title: 'MAJ' }} />
       {/* <Tab.Screen name="A propos" component={AProposScreen} /> */}
     </Tab.Navigator>
     </NavigationContainer>

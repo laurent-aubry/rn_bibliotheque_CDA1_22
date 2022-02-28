@@ -52,7 +52,15 @@ const CardItem = ( { myRoute, oeuvre, onDelete}) => {
         </MainButton>
         <MainButton title="Editer" 
                 onPress={() => {
-
+                  navigation.navigate('UpdateItem'
+                  , {
+                    oeuvreId: oeuvre.id,
+                    titre: oeuvre.titre,
+                    annee: oeuvre.annee,
+                    auteur: oeuvre.auteur,
+                    imageUrl: oeuvre.imageUrl,
+                    myRoute: 'musiques',
+                  });
                 }}
         >
         <AntDesign name="edit" size={24} color="black" />
