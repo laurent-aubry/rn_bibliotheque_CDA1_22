@@ -2,12 +2,12 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 
 import CardList from "../components/CardList";
-// import SearchBox from "../components/SearchBox";
+import SearchBox from "../components/SearchBox";
 
 const MusicScreen = ({navigation}) => {
   const [musiques, setMusiques] = useState([]);
-  // const [searchField, setSearchField] = useState("");
-  // const [searchFieldAuteur, setSearchFieldAuteur] = useState("");
+  const [searchField, setSearchField] = useState("");
+  const [searchFieldAuteur, setSearchFieldAuteur] = useState("");
 
   useEffect(() => {
     const getOeuvres = async () => {
@@ -25,6 +25,24 @@ const MusicScreen = ({navigation}) => {
     getOeuvres();
   }, []);
 
+  const onSearchChange = (value) => {
+    //Mise à jour de searchField
+    setSearchField(value);
+  };
+
+  const onSearchAuteurChange = (auteur) => {
+    //Mise à jour de searchField
+    setSearchFieldAuteur(auteur);
+  };
+
+  const filteredMusiques = musiques.filter((musique) =>
+    musique.titre.toLowerCase().includes(searchField.toLowerCase())
+  );
+
+  const filteredMusiquesBis = filteredMusiques.filter((musique) =>
+    musique.auteur.toLowerCase().includes(searchFieldAuteur.toLowerCase())
+  );
+
   const itemDeleteHandler = (deleteItemId) => {
     setMusiques((prevMusiques) =>
       prevMusiques.filter((musique) => musique.id !== deleteItemId)
@@ -36,15 +54,15 @@ const MusicScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text>Musics screen</Text>
-      {/* <View style={styles.searchBoxes}>
+      <View style={styles.searchBoxes}>
         <SearchBox onSearch={onSearchChange} message="Rechercher un titre" />
         <SearchBox
           onSearch={onSearchAuteurChange}
           message="Rechercher un auteur"
         />
-      </View> */}
+      </View>
       <CardList
-        oeuvres={musiques}
+        oeuvres={filteredMusiquesBis}
         onDeleteItem={itemDeleteHandler}
         myRoute="musiques"
         navigation

@@ -56,16 +56,18 @@ export default function App() {
           } else if (route.name === "Musiques") {
             iconName = focused ? "musical-notes" : "musical-notes-outline";
           } else if (route.name === "Films") {
-            iconName = focused ? "film" : "film-outline";
-          } else if (route.name === "A propos") {
-            iconName = focused
-              ? "information-circle"
-              : "information-circle-outline";
-          } else if (route.name === "Jeux vidéo") {
-            iconName = focused
-              ? "ios-game-controller"
-              : "ios-game-controller-outline";
-          }
+            iconName = focused ? "films" : "film-outline";
+          } 
+          // else if (route.name === "A propos") {
+          //   iconName = focused
+          //     ? "information-circle"
+          //     : "information-circle-outline";
+          // } 
+          // else if (route.name === "Jeux vidéo") {
+          //   iconName = focused
+          //     ? "ios-game-controller"
+          //     : "ios-game-controller-outline";
+          // }
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -75,7 +77,7 @@ export default function App() {
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ title: 'Accueil' }} />
       <Tab.Screen name="Music" component={MusicScreen} options={{ title: 'Musiques' }} />
-      <Tab.Screen name="Film" component={FilmScreen} />
+      <Tab.Screen name="Film" component={FilmScreen} options={{ title: 'Films' }} />
       {/* <Tab.Screen name="A propos" component={AProposScreen} /> */}
     </Tab.Navigator>
     </NavigationContainer>
