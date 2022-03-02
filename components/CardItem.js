@@ -52,7 +52,7 @@ const CardItem = ( { myRoute, oeuvre, onDelete}) => {
         </MainButton>
         <MainButton title="Editer" 
                 onPress={() => {
-                  navigation.navigate('UpdateItem'
+                  navigation.push('UpdateItem'
                   , {
                     oeuvreId: oeuvre.id,
                     titre: oeuvre.titre,
